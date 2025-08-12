@@ -20,7 +20,7 @@ const App = () =>
 	const [searchTerm, setSearchTerm] = useState("");
 	const [errorMessage, setErrorMessage] = useState("");
 	const [movieList, setMovieList] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const fetchData = async () =>
 	{
@@ -47,7 +47,7 @@ const App = () =>
 		}
 		finally
 		{
-			setIsLoading(true);
+			setIsLoading(false);
 		}
 	};
 
@@ -70,9 +70,9 @@ const App = () =>
 						<img src="./images/hero-img.png" alt="Movie Posters"/>
 					</div>
 					<h1 className="text-6xl">We Have All the <span className="text-gradient">Flix!</span> You Only Need a Popcorn
-						;)</h1>
+						🍿 ;)</h1>
 				</section>
-				<section className="flex flex-col space-y-8 mt-12">
+				<section className="flex flex-col space-y-8">
 					<SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
 					{isLoading
 						? <Loader /> || <p className="text-sm text-white mx-auto my-8">Loading...</p>
