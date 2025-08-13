@@ -8,7 +8,7 @@ import ItemCard from "./components/item-card/ItemCard.jsx";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = import.meta.env.VITE_API_KEY_TMDB;
-const API_OPTONS = {
+const API_OPTIONS = {
 	method: "GET",
 	headers: {
 		Accept: "application/json",
@@ -31,7 +31,7 @@ const App = () =>
 		try
 		{
 			const endpoint = `${API_BASE_URL}/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
-			const responseData = await axios(endpoint, API_OPTONS);
+			const responseData = await axios(endpoint, API_OPTIONS);
 
 			if (responseData.status !== 200)
 			{
