@@ -19,7 +19,7 @@ const App = () =>
 {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [errorMessage, setErrorMessage] = useState("");
-	const [movieList, setMovieList] = useState([]);
+	const [itemList, setItemList] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
 	const fetchData = async () =>
@@ -38,7 +38,7 @@ const App = () =>
 			}
 
 			console.log(responseData.data.results);
-			setMovieList(responseData.data.results);
+			setItemList(responseData.data.results);
 		}
 		catch (error)
 		{
@@ -81,7 +81,7 @@ const App = () =>
 				<section className="all-movies">
 					<h2 className="mt-16">Movies:</h2>
 					<ul>
-						{movieList.map(movie => (
+						{itemList.map(movie => (
 							<li className="text-white" key={movie.id}>{movie.title}</li>
 						))}
 					</ul>
