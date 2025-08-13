@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 
-const Greeting = ({title}) =>
+const Ratings = ({title}) =>
 {
 	const [hasLiked, setHasLiked] = useState(false);
 	const [likeCount, setLikeCount] = useState(0);
@@ -26,4 +26,4 @@ const Greeting = ({title}) =>
 	);
 };
 
-export default Greeting;
+export default Ratings;
