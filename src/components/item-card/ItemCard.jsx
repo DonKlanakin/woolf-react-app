@@ -7,8 +7,8 @@ const ItemCard = ({item}) =>
 
 	return (
 		<div className="item-card">
-			<img className="card-img-top" src={thumbnailPath ? `${BASE_URL}${thumbnailPath}` : "/images/poster-not-available.png"} />
-			<li className="text-white" key={item.id}>{item.title}</li>
+			<img src={thumbnailPath ? `${BASE_URL}${thumbnailPath}` : "/images/poster-not-available.png"} />
+			<h3 className="mt-4" key={item.id}>{item.title}</h3>
 		</div>
 	);
 };

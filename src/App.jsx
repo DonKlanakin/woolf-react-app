@@ -1,7 +1,6 @@
 import axios from "axios";
 import {useState, useEffect} from "react";
 import "./index.css";
-import Ratings from "./components/cards/greeting/Ratings.jsx";
 import SearchBar from "./components/search-bar/SearchBar.jsx";
 import Loader from "./components/Loader.jsx";
 import ItemCard from "./components/item-card/ItemCard.jsx";
