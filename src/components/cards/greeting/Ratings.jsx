@@ -12,7 +12,7 @@ const Ratings = ({title}) =>
 	}, [likeCount]);
 
 	return (
-		<div className={"movie-card"}>
+		<div className={"item-card"}>
 			<h1>{title}</h1>
 			<div className="caption-likes">
 				<span className={"likes-count"}>{likeCount} likes</span>

@@ -4,6 +4,7 @@ import "./index.css";
 import Ratings from "./components/cards/greeting/Ratings.jsx";
 import SearchBar from "./components/search-bar/SearchBar.jsx";
 import Loader from "./components/Loader.jsx";
+import ItemCard from "./components/item-card/ItemCard.jsx";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = import.meta.env.VITE_API_KEY_TMDB;
@@ -75,14 +76,14 @@ const App = () =>
 				<section className="flex flex-col space-y-8">
 					<SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
 					{isLoading
-						? <Loader /> || <p className="text-sm text-white mx-auto my-8">Loading...</p>
+						? <Loader/> || <p className="text-sm text-white mx-auto my-8">Loading...</p>
 						: errorMessage ? <p className="text-orange-600 mx-auto my-8">{errorMessage}</p> : ""}
 				</section>
-				<section className="all-movies">
-					<h2 className="mt-16">Movies:</h2>
+				<section className="all-items">
+					<h2 className="mt-16">Search Results:</h2>
 					<ul>
-						{itemList.map(movie => (
-							<li className="text-white" key={movie.id}>{movie.title}</li>
+						{itemList.map(item => (
+							<ItemCard key={item.id} item={item}/>
 						))}
 					</ul>
 				</section>

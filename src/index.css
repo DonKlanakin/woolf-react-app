@@ -95,7 +95,7 @@
         }
     }
 
-    .all-movies {
+    .all-items {
         @apply space-y-9;
 
         & ul {
@@ -103,7 +103,7 @@
         }
     }
 
-    .movie-card {
+    .item-card {
         @apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10;
 
         & img {
