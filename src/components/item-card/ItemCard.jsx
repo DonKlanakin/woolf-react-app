@@ -2,15 +2,22 @@ import React from "react";
 
 const ItemCard = ({item}) =>
 {
-	const BASE_URL = `https://image.tmdb.org/t/p/w500`;
-	let thumbnailPath = item.poster_path;
+	try
+	{
+		// const BASE_URL = `https://api.scryfall.com`;
+		let thumbnailPath = item.image_uris.small || "/images/poster-not-available.png";
 
-	return (
-		<div className="item-card">
-			<img src={thumbnailPath ? `${BASE_URL}${thumbnailPath}` : "/images/poster-not-available.png"} />
-			<h3 className="mt-4" key={item.id}>{item.title}</h3>
-		</div>
-	);
+		return (
+			<div className="item-card">
+				<img src={thumbnailPath ? `${thumbnailPath}` : "/images/poster-not-available.png"} alt="artwork"/>
+				<h3 className="mt-4">{item.name}</h3>
+			</div>
+		);
+	}
+	catch (error)
+	{
+		console.error(error);
+	}
 };
 
 export default ItemCard;

@@ -5,13 +5,13 @@ import SearchBar from "./components/search-bar/SearchBar.jsx";
 import Loader from "./components/Loader.jsx";
 import ItemCard from "./components/item-card/ItemCard.jsx";
 
-const API_BASE_URL = "https://api.themoviedb.org/3";
+const API_BASE_URL = "https://api.scryfall.com/cards/search?order=cmc&q=c%3Ared+pow%3D3";
 const API_KEY = import.meta.env.VITE_API_KEY_TMDB;
 const API_OPTIONS = {
 	method: "GET",
 	headers: {
-		Accept: "application/json",
-		Authorization: `Bearer ${API_KEY}`
+		"Accept": "application/json;q=0.9,*/*;q=0.8",
+		//Authorization: `Bearer ${API_KEY}`
 	}
 };
 
@@ -24,21 +24,22 @@ const App = () =>
 
 	const fetchData = async () =>
 	{
-		let logPrefix = "fetchData :";
 		setIsLoading(true);
+		let logPrefix = "fetchData :";
+		let dataObj = {};
 
 		try
 		{
-			const endpoint = `${API_BASE_URL}/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
+			const endpoint = `${API_BASE_URL}`;
 			const responseData = await axios(endpoint, API_OPTIONS);
+			const dataObj = responseData.data.data;
 
 			if (responseData.status !== 200)
 			{
 				throw new Error();
 			}
 
-			console.log(responseData.data.results);
-			setItemList(responseData.data.results);
+			setItemList(dataObj);
 		}
 		catch (error)
 		{
@@ -49,28 +50,32 @@ const App = () =>
 		{
 			setIsLoading(false);
 		}
+
+		return dataObj;
 	};
 
 	useEffect(() =>
 	{
-		fetchData();
+		fetchData()
+			.then( r => console.debug("fetchData :", r));
 	}, []);
 
 	return (
 		<main>
 			<div className="pattern">
-				<img src="./images/hero-bg.png" alt="Hero Banner"/>
+				<img src="./images/Babe984goqiqwuefhcosb_1920x1000.jpg" alt="Hero Banner"/>
 			</div>
 			<div className="wrapper">
 				<section>
-					<div className="max-w-24 mx-auto">
-						<img src="./images/avatar-dk.svg" alt="The Avengers"/>
+					<div className="max-w-[3.2rem]">
+						<img src="./images/DK.svg" alt="DK Signature"/>
 					</div>
 					<div className="max-w-lg mx-auto">
-						<img src="./images/hero-img.png" alt="Movie Posters"/>
+						<img src="./images/spm_home_logoupdate.webp" alt="Marvel's Spiderman Logo"/>
+						<h1 className="text-6xl text-center">Release Date: <span className="text-gradient">September 26</span></h1>
+						<h2 className="text-3xl text-center">FRIENDLY. AMAZING. SPECTACULAR!</h2>
+						<h3 className="text-xl text-light-100 text-center">Thwip into our newest set! Magic: The Gathering | Marvel's Spider-Man slings cards from across the Spider-Man universe into your favorite decks.</h3>
 					</div>
-					<h1 className="text-6xl">We Have All the <span className="text-gradient">Flix!</span> You Only Need a Popcorn
-						🍿 ;)</h1>
 				</section>
 				<section className="flex flex-col space-y-8">
 					<SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
