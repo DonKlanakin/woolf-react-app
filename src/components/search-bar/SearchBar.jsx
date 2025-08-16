@@ -7,7 +7,7 @@ const SearchBar = ({searchTerm, setSearchTerm}) =>
 			<figure>
 				<img src="./images/search.svg" alt="Search Icon"/>
 				<input type="text"
-							 placeholder="Search through the Multiverse.."
+							 placeholder="Search through the MTG Multiverse.."
 							 value={searchTerm}
 							 onChange={(event) => setSearchTerm(event.target.value)}/>
 			</figure>

@@ -11,12 +11,19 @@ const ItemCard = ({item}) =>
 			<div className="item-card">
 				<img src={thumbnailPath ? `${thumbnailPath}` : "/images/poster-not-available.png"} alt="artwork"/>
 				<h3 className="mt-4">{item.name}</h3>
+
+				<div className="content">
+					<div className="rating">
+						<img src="images/star.svg" alt="star"/>
+						<p className="text-sm text-light-100">{item.rarity}</p>
+					</div>
+				</div>
 			</div>
 		);
 	}
 	catch (error)
 	{
-		console.error(error);
+		console.debug(error);
 	}
 };
 
