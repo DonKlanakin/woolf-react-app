@@ -1,5 +1,6 @@
 import axios from "axios";
 import {useState, useEffect} from "react";
+import {useDebounce} from "react-use";
 import "./index.css";
 import SearchBar from "./components/search-bar/SearchBar.jsx";
 import Loader from "./components/Loader.jsx";
@@ -17,10 +18,17 @@ const API_OPTIONS = {
 
 const App = () =>
 {
+	// State fields
 	const [searchTerm, setSearchTerm] = useState("");
 	const [errorMessage, setErrorMessage] = useState("");
 	const [itemList, setItemList] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
+	const [debounced, setDebounced] = useState("");
+
+	useDebounce(() =>
+	{
+		setDebounced(searchTerm);
+	}, 800, [searchTerm]);
 
 	const fetchData = async (query = "") =>
 	{
@@ -61,8 +69,8 @@ const App = () =>
 
 	useEffect(() =>
 	{
-		fetchData(searchTerm);
-	}, [searchTerm]);
+		fetchData(debounced);
+	}, [debounced]);
 
 	return (
 		<main>
