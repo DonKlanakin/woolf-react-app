@@ -2,6 +2,9 @@ import React from "react";
 
 const ItemCard = ({item, onClick}) =>
 {
+	const handleOnClick = (item) => {
+		onClick(item.id);
+	}
 
 	try
 	{
@@ -9,10 +12,9 @@ const ItemCard = ({item, onClick}) =>
 		let thumbnailPath = item.image_uris.small || "/images/poster-not-available.png";
 
 		return (
-			<div className="item-card cursor-pointer" onClick={onClick}>
+			<div className="item-card cursor-pointer" onClick={() => handleOnClick(item)}>
 				<img src={thumbnailPath ? `${thumbnailPath}` : "/images/poster-not-available.png"} alt="artwork"/>
 				<h3 className="mt-4">{item.name}</h3>
-
 				<div className="content mx-auto justify-between">
 					<div className="rating">
 						<img src="images/star.svg" alt="star"/>

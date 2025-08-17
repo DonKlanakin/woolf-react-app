@@ -87,10 +87,6 @@ const App = () =>
 	// 	})();
 	// }, []);
 
-	function onItemCardClicked() {
-		console.log("onItemCardClicked");
-	}
-
 	return (
 		<main>
 			<div className="pattern">
@@ -121,7 +117,7 @@ const App = () =>
 					<h2 className="mt-16">Search Results:</h2>
 					<ul>
 						{itemList.map(item => (
-							<ItemCard key={item.id} item={item} onClick={onItemCardClicked}/>
+							<ItemCard key={item.id} item={item} onClick={(e)=>{console.log(e)}} />
 						))}
 					</ul>
 				</section>
