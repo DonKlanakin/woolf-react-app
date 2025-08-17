@@ -5,7 +5,6 @@ import "./index.css";
 import SearchBar from "./components/search-bar/SearchBar.jsx";
 import Loader from "./components/Loader.jsx";
 import ItemCard from "./components/cards/item-card/ItemCard.jsx";
-import {upVote} from "./appwrite.js";
 import ItemInfoModal from "./components/modals/item-info-modal/ItemInfoModal.jsx";
 import {ItemInfoModalContext} from "./components/contexts/ItemInfoModalContext.jsx";
 
@@ -27,6 +26,7 @@ const App = () =>
 	const [isLoading, setIsLoading] = useState(false);
 	const [debounced, setDebounced] = useState("");
 	const [isItemInfoModelOpen, setIsItemInfoModelOpen] = useState(false);
+	const [selectedItem, setSelectedItem] = useState("");
 
 	const ItemInfoModalRef = useRef(null);
 
@@ -77,6 +77,7 @@ const App = () =>
 		fetchData(debounced);
 	}, [debounced]);
 
+	// UPCOMING FEATURE :: UPVOTE!
 	// useEffect(() =>
 	// {
 	// 	(async () =>
@@ -92,10 +93,18 @@ const App = () =>
 	// 	})();
 	// }, []);
 
-	const handleOnItemInfoCardClicked = (e) => {
-		console.log(e);
-		setIsItemInfoModelOpen(true)
-		console.log(isItemInfoModelOpen);
+	const handleOnItemCardClicked = (e) =>
+	{
+		const logPrefix = "fetchData :";
+		try
+		{
+			setIsItemInfoModelOpen(true);
+			setSelectedItem(e)
+		}
+		catch (error)
+		{
+			console.debug(`${logPrefix} ${error}`);
+		}
 	};
 
 	return (
@@ -128,13 +137,16 @@ const App = () =>
 					<h2 className="mt-16">Search Results:</h2>
 					<ul>
 						{itemList.map(item => (
-							<ItemCard key={item.id} item={item} onClick={handleOnItemInfoCardClicked} />
+							<ItemCard key={item.id} item={item} onClick={handleOnItemCardClicked}/>
 						))}
 					</ul>
 				</section>
 			</div>
-			<ItemInfoModalContext.Provider value={{ isItemInfoModelOpen, setIsItemInfoModelOpen }}>
-				<ItemInfoModal />
+			<ItemInfoModalContext.Provider value={{
+				isItemInfoModelOpen, setIsItemInfoModelOpen
+				, selectedItem, setSelectedItem
+			}}>
+				<ItemInfoModal/>
 			</ItemInfoModalContext.Provider>
 		</main>
 	);

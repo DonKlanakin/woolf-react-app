@@ -3,7 +3,7 @@ import React from "react";
 const ItemCard = ({item, onClick}) =>
 {
 	const handleOnClick = (item) => {
-		onClick(item.id);
+		onClick(item);
 	}
 
 	try
