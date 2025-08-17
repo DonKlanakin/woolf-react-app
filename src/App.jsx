@@ -5,9 +5,9 @@ import "./index.css";
 import SearchBar from "./components/search-bar/SearchBar.jsx";
 import Loader from "./components/Loader.jsx";
 import ItemCard from "./components/item-card/ItemCard.jsx";
+import {upVote} from "./appwrite.js";
 
 const API_BASE_URL = "https://api.scryfall.com/cards";
-const API_KEY = import.meta.env.VITE_API_KEY_TMDB;
 const API_OPTIONS = {
 	method: "GET",
 	headers: {
@@ -43,6 +43,7 @@ const App = () =>
 			let endpoint = query
 				? `${API_BASE_URL}/search?q=${encodeURIComponent(query)}`
 				: `${API_BASE_URL}/search?order=released&q=*`;
+
 			const responseData = await axios(endpoint, API_OPTIONS);
 			const dataObj = responseData.data.data;
 
@@ -71,6 +72,21 @@ const App = () =>
 	{
 		fetchData(debounced);
 	}, [debounced]);
+
+	// useEffect(() =>
+	// {
+	// 	(async () =>
+	// 	{
+	// 		await upVote({
+	// 				id: "eb363654-2004-4db8-bbd2-5b121da4f2a0"
+	// 				,
+	// 				name: "A-Acererak the Archlich"
+	// 				,
+	// 				image_uris: {small: "https://cards.scryfall.io/small/front/e/b/eb363654-2004-4db8-bbd2-5b121da4f2a0.jpg?1681158256"}
+	// 			}
+	// 		);
+	// 	})();
+	// }, []);
 
 	return (
 		<main>
