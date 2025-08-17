@@ -48,7 +48,8 @@ const App = () =>
 		catch (error)
 		{
 			console.debug(`${logPrefix} : ${error}.`);
-			setErrorMessage(`${error.toString().includes("404") ? "Item not found" : "Error fetching data"}, Let's try again!`);
+			setErrorMessage(`${error.toString()
+															.includes("404") ? "Item not found" : "Error fetching data"}, Let's try again!`);
 		}
 		finally
 		{
@@ -56,7 +57,7 @@ const App = () =>
 		}
 
 		return dataObj;
-	}
+	};
 
 	useEffect(() =>
 	{
