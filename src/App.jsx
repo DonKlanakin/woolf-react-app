@@ -1,11 +1,13 @@
 import axios from "axios";
-import {useState, useEffect} from "react";
+import {useState, useEffect, createContext, useRef} from "react";
 import {useDebounce} from "react-use";
 import "./index.css";
 import SearchBar from "./components/search-bar/SearchBar.jsx";
 import Loader from "./components/Loader.jsx";
 import ItemCard from "./components/cards/item-card/ItemCard.jsx";
 import {upVote} from "./appwrite.js";
+import ItemInfoModal from "./components/modals/item-info-modal/ItemInfoModal.jsx";
+import {ItemInfoModalContext} from "./components/contexts/ItemInfoModalContext.jsx";
 
 const API_BASE_URL = "https://api.scryfall.com/cards";
 const API_OPTIONS = {
@@ -24,6 +26,9 @@ const App = () =>
 	const [itemList, setItemList] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [debounced, setDebounced] = useState("");
+	const [isItemInfoModelOpen, setIsItemInfoModelOpen] = useState(false);
+
+	const ItemInfoModalRef = useRef(null);
 
 	useDebounce(() =>
 	{
@@ -87,6 +92,12 @@ const App = () =>
 	// 	})();
 	// }, []);
 
+	const handleOnItemInfoCardClicked = (e) => {
+		console.log(e);
+		setIsItemInfoModelOpen(true)
+		console.log(isItemInfoModelOpen);
+	};
+
 	return (
 		<main>
 			<div className="pattern">
@@ -117,11 +128,14 @@ const App = () =>
 					<h2 className="mt-16">Search Results:</h2>
 					<ul>
 						{itemList.map(item => (
-							<ItemCard key={item.id} item={item} onClick={(e)=>{console.log(e)}} />
+							<ItemCard key={item.id} item={item} onClick={handleOnItemInfoCardClicked} />
 						))}
 					</ul>
 				</section>
 			</div>
+			<ItemInfoModalContext.Provider value={{ isItemInfoModelOpen, setIsItemInfoModelOpen }}>
+				<ItemInfoModal />
+			</ItemInfoModalContext.Provider>
 		</main>
 	);
 };
