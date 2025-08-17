@@ -4,7 +4,7 @@ import {useDebounce} from "react-use";
 import "./index.css";
 import SearchBar from "./components/search-bar/SearchBar.jsx";
 import Loader from "./components/Loader.jsx";
-import ItemCard from "./components/item-card/ItemCard.jsx";
+import ItemCard from "./components/cards/item-card/ItemCard.jsx";
 import {upVote} from "./appwrite.js";
 
 const API_BASE_URL = "https://api.scryfall.com/cards";
@@ -34,7 +34,6 @@ const App = () =>
 	{
 		setIsLoading(true);
 		setErrorMessage("");
-		console.log(isLoading);
 		let logPrefix = "fetchData :";
 		let dataObj = {};
 
@@ -88,6 +87,10 @@ const App = () =>
 	// 	})();
 	// }, []);
 
+	function onItemCardClicked() {
+		console.log("onItemCardClicked");
+	}
+
 	return (
 		<main>
 			<div className="pattern">
@@ -118,7 +121,7 @@ const App = () =>
 					<h2 className="mt-16">Search Results:</h2>
 					<ul>
 						{itemList.map(item => (
-							<ItemCard key={item.id} item={item}/>
+							<ItemCard key={item.id} item={item} onClick={onItemCardClicked}/>
 						))}
 					</ul>
 				</section>

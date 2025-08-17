@@ -1,14 +1,15 @@
 import React from "react";
 
-const ItemCard = ({item}) =>
+const ItemCard = ({item, onClick}) =>
 {
+
 	try
 	{
 		// const BASE_URL = `https://api.scryfall.com`;
 		let thumbnailPath = item.image_uris.small || "/images/poster-not-available.png";
 
 		return (
-			<div className="item-card">
+			<div className="item-card cursor-pointer" onClick={onClick}>
 				<img src={thumbnailPath ? `${thumbnailPath}` : "/images/poster-not-available.png"} alt="artwork"/>
 				<h3 className="mt-4">{item.name}</h3>
 
