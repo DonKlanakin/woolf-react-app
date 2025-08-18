@@ -119,7 +119,7 @@ const App = () =>
 						<img className="max-h-[12rem] md:max-h-[20rem] w-auto mx-auto" src="images/spm_home_logoupdate.webp" alt="Marvel's Spiderman Logo"/>
 						<h1 className="text-3xl md:text-5xl text-center">Release Date: <span className="text-gradient text-3xl md:text-5xl">September 26</span></h1>
 						<h2 className="text-xl md:text-3xl text-center">FRIENDLY. AMAZING. SPECTACULAR!</h2>
-						<h3 className="text-xl md:text-xl text-light-100 text-center mx-auto mt-2">Thwip into our newest set! Magic: The Gathering |
+						<h3 className="text-xl md:text-xl text-light-100 text-center mx-auto mt-2 md:mx-[4rem]">Thwip into our newest set! Magic: The Gathering |
 							Marvel's Spider-Man slings cards from across the Spider-Man universe into your favorite decks.</h3>
 					</div>
 				</section>
