@@ -114,14 +114,12 @@ const App = () =>
 			</div>
 			<div className="wrapper">
 				<section>
-					<div className="max-w-[3.2rem]">
-						<img src="images/avatar-dk-outlined.svg" alt="DK Signature"/>
-					</div>
+					<img className="absolute z-0 w-[2.4rem] sm:w-[4rem] mt-[-1rem]" src="images/avatar-dk-outlined.svg" alt="DK Signature"/>
 					<div className="mx-auto mb-8">
-						<img className="h-[20rem] mx-auto" src="images/spm_home_logoupdate.webp" alt="Marvel's Spiderman Logo"/>
-						<h1 className="text-6xl text-center">Release Date: <span className="text-gradient">September 26</span></h1>
-						<h2 className="text-3xl text-center">FRIENDLY. AMAZING. SPECTACULAR!</h2>
-						<h3 className="text-xl text-light-100 text-center mx-auto">Thwip into our newest set! Magic: The Gathering |
+						<img className="max-h-[12rem] md:max-h-[20rem] w-auto mx-auto" src="images/spm_home_logoupdate.webp" alt="Marvel's Spiderman Logo"/>
+						<h1 className="text-3xl md:text-5xl text-center">Release Date: <span className="text-gradient text-3xl md:text-5xl">September 26</span></h1>
+						<h2 className="text-xl md:text-3xl text-center">FRIENDLY. AMAZING. SPECTACULAR!</h2>
+						<h3 className="text-xl md:text-xl text-light-100 text-center mx-auto mt-2">Thwip into our newest set! Magic: The Gathering |
 							Marvel's Spider-Man slings cards from across the Spider-Man universe into your favorite decks.</h3>
 					</div>
 				</section>
