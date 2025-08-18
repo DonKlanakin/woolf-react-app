@@ -51,7 +51,7 @@ export default function ItemInfoModal()
 				<Fade in={isItemInfoModelOpen}>
 					<Box sx={style}>
 						<div className="flex flex-col">
-							<img src={artwork} alt="artwork" className="max-h-[36rem] rounded-[2rem] mx-auto mt-8"/>
+							<img src={artwork} alt="artwork" className="max-h-[32rem] rounded-[2rem] mx-auto mt-8"/>
 							<img src={"images/avatar-dk-outlined.svg"} alt="DK" className="max-w-[2.4rem] mx-auto mt-12 opacity-20"/>
 							<h3 className="text-gray-700 mx-auto mt-2">.: Powered by DK :.</h3>
 							{/*<div className="mx-auto mt-4">*/}

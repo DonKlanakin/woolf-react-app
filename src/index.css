@@ -12,7 +12,7 @@
 	--color-dark-100: #0f0d23;
 	--font-primary: var(--FONT-PRIMARY), var(--FONT-DEFAULT);
 	--breakpoint-xs: 480px;
-	--background-image-hero-pattern: url("/hero-bg.png");
+	--background-image-hero-pattern: url("images/hero-bg.png");
 }
 
 @layer base {
@@ -21,6 +21,7 @@
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
+		font-size: 80%;
 	}
 
 	body {
@@ -52,7 +53,7 @@
 
 @layer components {
 	.pattern {
-		@apply bg-hero-pattern w-full h-screen bg-center bg-cover absolute z-0;
+		@apply bg-hero-pattern bg-center bg-cover w-full h-screen absolute z-0;
 	}
 
 	.wrapper {
@@ -87,7 +88,7 @@
 		}
 
 		& input {
-			@apply w-full bg-blue-950 rounded-sm py-2 sm:pr-10 pl-10 text-base text-gray-200 placeholder-light-200 outline-hidden;
+			@apply w-full bg-blue-950 opacity-80 rounded-sm py-2 sm:pr-10 pl-10 text-base text-gray-200 placeholder-light-200 outline-hidden;
 		}
 
 		& .search-icon {
@@ -111,7 +112,7 @@
 		@apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10;
 
 		& img {
-			@apply rounded-[1rem] h-auto w-full;
+			@apply rounded-[2rem] h-auto w-full;
 		}
 
 		& h3 {
