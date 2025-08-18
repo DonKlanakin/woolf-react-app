@@ -99,7 +99,7 @@ const App = () =>
 		try
 		{
 			setIsItemInfoModelOpen(true);
-			setSelectedItem(e)
+			setSelectedItem(e);
 		}
 		catch (error)
 		{
@@ -117,11 +117,11 @@ const App = () =>
 					<div className="max-w-[3.2rem]">
 						<img src="images/avatar-dk-outlined.svg" alt="DK Signature"/>
 					</div>
-					<div className="max-w-lg mx-auto mb-8">
-						<img src="images/spm_home_logoupdate.webp" alt="Marvel's Spiderman Logo"/>
+					<div className="mx-auto mb-8">
+						<img className="h-[20rem] mx-auto" src="images/spm_home_logoupdate.webp" alt="Marvel's Spiderman Logo"/>
 						<h1 className="text-6xl text-center">Release Date: <span className="text-gradient">September 26</span></h1>
 						<h2 className="text-3xl text-center">FRIENDLY. AMAZING. SPECTACULAR!</h2>
-						<h3 className="text-xl text-light-100 text-center">Thwip into our newest set! Magic: The Gathering |
+						<h3 className="text-xl text-light-100 text-center mx-auto">Thwip into our newest set! Magic: The Gathering |
 							Marvel's Spider-Man slings cards from across the Spider-Man universe into your favorite decks.</h3>
 					</div>
 				</section>

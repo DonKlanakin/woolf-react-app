@@ -52,8 +52,8 @@ export default function ItemInfoModal()
 					<Box sx={style}>
 						<div className="flex flex-col">
 							<img src={artwork} alt="artwork" className="max-h-[32rem] rounded-[2rem] mx-auto mt-8"/>
-							<img src={"images/avatar-dk-outlined.svg"} alt="DK" className="max-w-[2.4rem] mx-auto mt-12 opacity-20"/>
-							<h3 className="text-gray-700 mx-auto mt-2">.: Powered by DK :.</h3>
+							<img src={"images/avatar-dk-outlined.svg"} alt="DK" className="max-w-[2.8rem] mx-auto mt-12 opacity-20"/>
+							<h3 className="text-base text-gray-700 mx-auto mt-2">.: Powered by DK :.</h3>
 							{/*<div className="mx-auto mt-4">*/}
 							{/*	<div className="text-lg text-white font-bold line-clamp-1 text-light-100">*/}
 							{/*		{name}*/}
